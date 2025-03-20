@@ -1,0 +1,166 @@
+StrucKGC:
+FB15k237:
+forward metrics: {"mean_rank": 78.3286, "mrr": 0.4387, "hit@1": 0.3391, "hit@3": 0.48, "hit@10": 0.6371, "hit@50": 0.8154}
+backward metrics: {"mean_rank": 130.1175, "mrr": 0.2684, "hit@1": 0.1723, "hit@3": 0.2954, "hit@10": 0.4645, "hit@50": 0.6961}
+Averaged metrics: {'mean_rank': 104.2231, 'mrr': 0.3536, 'hit@1': 0.2557, 'hit@3': 0.3877, 'hit@10': 0.5508, 'hit@50': 0.7558}
+
+WN18RR:
+forward metrics: {"mean_rank": 55.739, "mrr": 0.6989, "hit@1": 0.6015, "hit@3": 0.7696, "hit@10": 0.8682, "hit@50": 0.9413}
+backward metrics: {"mean_rank": 66.761, "mrr": 0.6081, "hit@1": 0.5083, "hit@3": 0.6717, "hit@10": 0.783, "hit@50": 0.9027}
+Averaged metrics: {'mean_rank': 61.25, 'mrr': 0.6535, 'hit@1': 0.5549, 'hit@3': 0.7207, 'hit@10': 0.8256, 'hit@50': 0.922}
+
+
+batch_size=64
+WN18RR:
+without triplet:
+only forward:
+forward: "mean_rank": 186.6359, "mrr": 0.5155, "hit@1": 0.4075, "hit@3": 0.5753, "hit@10": 0.725
+
+forward & backward(inverse relation):
+forward: "mean_rank": 66.8446, "mrr": 0.6472, "hit@1": 0.5402, "hit@3": 0.7234, "hit@10": 0.829
+backward: "mean_rank": 98.6966, "mrr": 0.5384, "hit@1": 0.4314, "hit@3": 0.6037, "hit@10": 0.7291
+mean: 'mean_rank': 82.7706, 'mrr': 0.5928, 'hit@1': 0.4858, 'hit@3': 0.6636, 'hit@10': 0.7791
+
+
+positive samples:
+forward metrics: {"mean_rank": 54.2763, "mrr": 0.636, "hit@1": 0.5354, "hit@3": 0.7045, "hit@10": 0.8127}
+backward metrics: {"mean_rank": 102.9407, "mrr": 0.5152, "hit@1": 0.4266, "hit@3": 0.5578, "hit@10": 0.6873}
+Averaged metrics: {'mean_rank': 78.6085, 'mrr': 0.5756, 'hit@1': 0.481, 'hit@3': 0.6311, 'hit@10': 0.75}
+
+
+
+with triplet:
+only forward:
+forward: "mean_rank": 86.3622, "mrr": 0.5131, "hit@1": 0.3653, "hit@3": 0.6091, "hit@10": 0.7843(6 triples)
+forward: "mean_rank": 80.7699, "mrr": 0.5151, "hit@1": 0.3657, "hit@3": 0.6088, "hit@10": 0.798(8 triples 50 epochs)
+forward metrics: {"mean_rank": 86.3682, "mrr": 0.5352, "hit@1": 0.3998, "hit@3": 0.6241, "hit@10": 0.7894}(8 triples 100 epochs)
+
+forward & backward(not inverse relation):
+forward: "mean_rank": 33.3267, "mrr": 0.5911, "hit@1": 0.441, "hit@3": 0.6946, "hit@10": 0.8695(8 triples)
+backward: "mean_rank": 35.3168, "mrr": 0.4319, "hit@1": 0.2696, "hit@3": 0.5284, "hit@10": 0.7454(8 triples)
+mean: 'mean_rank': 34.3218, 'mrr': 0.5115, 'hit@1': 0.3553, 'hit@3': 0.6115, 'hit@10': 0.8075(8 triples)
+
+forward & backward(not inverse relation, normlized):
+forward metrics: {"mean_rank": 129.9282, "mrr": 0.5993, "hit@1": 0.4939, "hit@3": 0.6631, "hit@10": 0.798}
+backward metrics: {"mean_rank": 319.8245, "mrr": 0.4639, "hit@1": 0.3679, "hit@3": 0.5175, "hit@10": 0.6382}
+Averaged metrics: {'mean_rank': 224.8764, 'mrr': 0.5316, 'hit@1': 0.4309, 'hit@3': 0.5903, 'hit@10': 0.7181}
+
+forward & backward(not inverse relation, normlized, stuc directly in entity):
+forward metrics: {"mean_rank": 110.5571, "mrr": 0.5913, "hit@1": 0.4834, "hit@3": 0.6608, "hit@10": 0.7837}
+backward metrics: {"mean_rank": 308.7811, "mrr": 0.4971, "hit@1": 0.4103, "hit@3": 0.5463, "hit@10": 0.656}
+Averaged metrics: {'mean_rank': 209.6691, 'mrr': 0.5442, 'hit@1': 0.4468, 'hit@3': 0.6036, 'hit@10': 0.7198}
+
+forward & backward(not inverse relation, not normlized, stuc directly in entity):
+forward metrics: {"mean_rank": 106.0651, "mrr": 0.5704, "hit@1": 0.4617, "hit@3": 0.6347, "hit@10": 0.7792}
+backward metrics: {"mean_rank": 184.3803, "mrr": 0.4626, "hit@1": 0.3574, "hit@3": 0.5204, "hit@10": 0.6519}
+Averaged metrics: {'mean_rank': 145.2227, 'mrr': 0.5165, 'hit@1': 0.4095, 'hit@3': 0.5776, 'hit@10': 0.7156}
+
+forward & backward(not inverse relation, normlized, hr+hr_tri, hr_tri为加权求和得到的结果，t不变):
+forward metrics: {"mean_rank": 87.865, "mrr": 0.6456, "hit@1": 0.5456, "hit@3": 0.7122, "hit@10": 0.8178}
+backward metrics: {"mean_rank": 105.5625, "mrr": 0.5475, "hit@1": 0.4521, "hit@3": 0.6072, "hit@10": 0.7173}
+average metrics: {"mean_rank": 96.7138, "mrr": 0.5965, "hit@1": 0.4989, "hit@3": 0.6597, "hit@10": 0.7675}
+
+
+
+FB15k237:
+without triplet:
+only forward:
+forward: "mean_rank": 106.779, "mrr": 0.3843, "hit@1": 0.2985, "hit@3": 0.4115, "hit@10": 0.5581(10 epoch)
+
+with triplet:
+only forward:
+forward: "mean_rank": 104.6503, "mrr": 0.3724, "hit@1": 0.2785, "hit@3": 0.4045, "hit@10": 0.5657(10 epoch)
+
+
+forward & backward(not inverse relation):
+forward metrics: {"mean_rank": 112.5578, "mrr": 0.3667, "hit@1": 0.2654, "hit@3": 0.4063, "hit@10": 0.5732}
+backward metrics: {"mean_rank": 565.6627, "mrr": 0.1128, "hit@1": 0.0542, "hit@3": 0.1157, "hit@10": 0.2309}
+Averaged metrics: {'mean_rank': 339.1103, 'mrr': 0.2398, 'hit@1': 0.1598, 'hit@3': 0.261, 'hit@10': 0.4021}
+
+batch_size=128:
+without triplet:
+only forward:
+forward metrics: {"mean_rank": 141.3395, "mrr": 0.5713, "hit@1": 0.469, "hit@3": 0.6264, "hit@10": 0.7728}
+only backward:
+backward metrics: {"mean_rank": 216.1927, "mrr": 0.4834, "hit@1": 0.3826, "hit@3": 0.5319, "hit@10": 0.6832}
+
+forward & backward(not inverse relation):
+forward metrics: {"mean_rank": 121.0922, "mrr": 0.6551, "hit@1": 0.5651, "hit@3": 0.7157, "hit@10": 0.8127}
+backward metrics: {"mean_rank": 202.9939, "mrr": 0.5802, "hit@1": 0.5, "hit@3": 0.6257, "hit@10": 0.7294}
+Averaged metrics: {'mean_rank': 162.043, 'mrr': 0.6177, 'hit@1': 0.5326, 'hit@3': 0.6707, 'hit@10': 0.7711}
+
+only one model: 
+forward & backward(inverse relation):
+forward metrics: {"mean_rank": 217.7502, "mrr": 0.6517, "hit@1": 0.5616, "hit@3": 0.7122, "hit@10": 0.8095}
+backward metrics: {"mean_rank": 250.8507, "mrr": 0.5935, "hit@1": 0.5096, "hit@3": 0.6442, "hit@10": 0.746}
+Averaged metrics: {'mean_rank': 234.3005, 'mrr': 0.6226, 'hit@1': 0.5356, 'hit@3': 0.6782, 'hit@10': 0.7777}
+
+with triplet:
+only forward:
+forward metrics: {"mean_rank": 172.7415, "mrr": 0.5221, "hit@1": 0.4247, "hit@3": 0.5724, "hit@10": 0.7112}
+only backward:
+
+forward & backward(not inverse relation):
+forward metrics: {"mean_rank": 61.7317, "mrr": 0.652, "hit@1": 0.544, "hit@3": 0.7288, "hit@10": 0.8376}
+backward metrics: {"mean_rank": 116.6235, "mrr": 0.3858, "hit@1": 0.2537, "hit@3": 0.4608, "hit@10": 0.6391}
+Averaged metrics: {'mean_rank': 89.1776, 'mrr': 0.5189, 'hit@1': 0.3989, 'hit@3': 0.5948, 'hit@10': 0.7384}
+
+forward metrics: {"mean_rank": 159.0909, "mrr": 0.6042, "hit@1": 0.5019, "hit@3": 0.6745, "hit@10": 0.7869}
+backward metrics: {"mean_rank": 303.8283, "mrr": 0.4866, "hit@1": 0.3998, "hit@3": 0.5319, "hit@10": 0.6445}
+Averaged metrics: {'mean_rank': 231.4596, 'mrr': 0.5454, 'hit@1': 0.4508, 'hit@3': 0.6032, 'hit@10': 0.7157}
+
+forward metrics: {"mean_rank": 86.6496, "mrr": 0.6769, "hit@1": 0.5906, "hit@3": 0.7323, "hit@10": 0.8258}(10 triples)
+backward metrics: {"mean_rank": 105.9882, "mrr": 0.5625, "hit@1": 0.4751, "hit@3": 0.611, "hit@10": 0.7224}
+average metrics: {"mean_rank": 96.3189, "mrr": 0.6197, "hit@1": 0.5329, "hit@3": 0.6716, "hit@10": 0.7741}
+
+forward & backward(not inverse relation, normlized, hr+h_tri, hr_tri为加权求和得到的结果，t不变):
+forward metrics: {"mean_rank": 78.8127, "mrr": 0.6803, "hit@1": 0.5941, "hit@3": 0.7425, "hit@10": 0.8293}(8 triples)
+backward metrics: {"mean_rank": 136.8682, "mrr": 0.5628, "hit@1": 0.4751, "hit@3": 0.6161, "hit@10": 0.7147}
+Averaged metrics: {'mean_rank': 107.8405, 'mrr': 0.6216, 'hit@1': 0.5346, 'hit@3': 0.6793, 'hit@10': 0.772}
+
+forward & backward(not inverse relation, normlized, hr+h_tri, hr_tri为加权求和得到的结果，t不变，考虑positive smples):
+forward metrics: {"mean_rank": 70.0083, "mrr": 0.6994, "hit@1": 0.6155, "hit@3": 0.7594, "hit@10": 0.8405}
+backward metrics: {"mean_rank": 73.7074, "mrr": 0.6105, "hit@1": 0.5278, "hit@3": 0.6583, "hit@10": 0.7556}
+Averaged metrics: {'mean_rank': 71.8579, 'mrr': 0.655, 'hit@1': 0.5716, 'hit@3': 0.7088, 'hit@10': 0.7981}
+
+batch_size=256:
+forward & backward(not inverse relation, normlized, hr+h_tri, hr_tri为加权求和得到的结果，t不变):
+forward metrics: {"mean_rank": 121.4595, "mrr": 0.6888, "hit@1": 0.6047, "hit@3": 0.7466, "hit@10": 0.8334}(4 triples)
+backward metrics: {"mean_rank": 144.8679, "mrr": 0.5741, "hit@1": 0.4962, "hit@3": 0.6171, "hit@10": 0.7154}
+Averaged metrics: {'mean_rank': 133.1637, 'mrr': 0.6315, 'hit@1': 0.5504, 'hit@3': 0.6819, 'hit@10': 0.7744}
+
+FB15k237:
+
+
+
+batch_size=512:
+forward & backward(inverse relation):
+forward metrics: {"mean_rank": 293.1177, "mrr": 0.6831, "hit@1": 0.6034, "hit@3": 0.7326, "hit@10": 0.8255}
+backward metrics: {"mean_rank": 485.9212, "mrr": 0.6197, "hit@1": 0.5475, "hit@3": 0.6573, "hit@10": 0.7486}
+Averaged metrics: {'mean_rank': 389.5195, 'mrr': 0.6514, 'hit@1': 0.5755, 'hit@3': 0.6949, 'hit@10': 0.7871}
+
+FB15k237:
+
+baseline:
+
+forward metrics: {"mean_rank": 96.6799, "mrr": 0.4196, "hit@1": 0.3286, "hit@3": 0.4535, "hit@10": 0.6012}
+backward metrics: {"mean_rank": 181.7875, "mrr": 0.2416, "hit@1": 0.1546, "hit@3": 0.2656, "hit@10": 0.4162}
+Averaged metrics: {'mean_rank': 139.2337, 'mrr': 0.3306, 'hit@1': 0.2416, 'hit@3': 0.3596, 'hit@10': 0.5087}
+
+forward & backward(not inverse relation, normlized, hr+hr_tri, hr_tri为加权求和得到的结果，t不变):
+forward metrics: {"mean_rank": 99.1125, "mrr": 0.4136, "hit@1": 0.3254, "hit@3": 0.4452, "hit@10": 0.5941}(4 triples)
+backward metrics: {"mean_rank": 188.1014, "mrr": 0.2296, "hit@1": 0.1458, "hit@3": 0.2483, "hit@10": 0.4003}
+Averaged metrics: {'mean_rank': 143.607, 'mrr': 0.3216, 'hit@1': 0.2356, 'hit@3': 0.3468, 'hit@10': 0.4972}
+
+
+
+batch_size=128, FB15k237:
+baseline:
+
+
+forward & backward(not inverse relation, normlized, hr+hr_tri, hr_tri为加权求和得到的结果，t不变):
+forward metrics: {"mean_rank": 94.0189, "mrr": 0.4006, "hit@1": 0.3089, "hit@3": 0.4323, "hit@10": 0.5871}
+backward metrics: {"mean_rank": 202.498, "mrr": 0.2148, "hit@1": 0.134, "hit@3": 0.2292, "hit@10": 0.3808}
+Averaged metrics: {'mean_rank': 148.2584, 'mrr': 0.3077, 'hit@1': 0.2215, 'hit@3': 0.3307, 'hit@10': 0.4839}
+
+

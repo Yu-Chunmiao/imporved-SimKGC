@@ -1,0 +1,3 @@
+新的想法：
+既然重构了triple，triple中几个mask的embedding为正样本，而batch中其他的值为负样本，采用含有正样本的loss function
+
