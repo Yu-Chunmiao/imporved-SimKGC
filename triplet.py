@@ -90,6 +90,20 @@ class EntityDict:
     def __len__(self):
         return len(self.entity_exs)
 
+class Ruledict():
+    def __int__(self, rule_dict_path: str):
+        self.path = rule_dict_path
+        self.r2rules = dict()
+        with open(self.path, 'r') as fi:
+            for line in fi:
+                rule = line.strip().split()
+                if len(rule) <= 1:
+                    continue
+                rule = [int(_) for _ in rule]
+                relation = rule[1]
+                self.r2rules[relation].append(rule)
+
+
 
 class LinkGraph:
 

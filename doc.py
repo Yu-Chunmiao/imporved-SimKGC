@@ -7,12 +7,13 @@ from typing import Optional, List
 
 from config import args
 from triplet_mask import construct_mask, construct_self_negative_mask
-from dict_hub import get_entity_dict, get_link_graph, get_tokenizer, get_train_triplet_dict # get_neighbor_trpilets
+from dict_hub import get_entity_dict, get_link_graph, get_tokenizer, get_train_triplet_dict, get_rule_dict # get_neighbor_trpilets
 from logger_config import logger
 import random
 
 entity_dict = get_entity_dict()
 train_triplet_dict = get_train_triplet_dict()
+rule_dict = get_rule_dict()
 if args.use_link_graph:
     # make the lazy data loading happen
     get_link_graph()
@@ -232,6 +233,7 @@ class Example:
             qr_text = '[STRUCT] ' + head_text + ' [SEP] ' + self.relation + ' [SEP]' + ' [MASK]'
             qe_encoded_inputs = head_encoded_inputs
             ae_encoded_inputs = tail_encoded_inputs
+            pathes = get_path_with_rule(self.head_id, self.relation,self.tail_id)
             head_forward_triplets, head_backward_triplets = get_neighbor_trpilets(self.head_id, self.relation,
                                                                                   self.tail_id,
                                                                                   args.num_triplets // 2,
